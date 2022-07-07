@@ -1,0 +1,8 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Lobster&family=Poppins&display=swap");
+
+.App {
+    font-family: "IM Fell French Canon SC", serif; /* logo */
+    font-family: "Lobster", cursive; /* explanation */
+    font-family: "Poppins", sans-serif; /* title */
+}
