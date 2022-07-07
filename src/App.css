@@ -1,6 +1,17 @@
 /* font */
 @import url("https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Lobster&family=Poppins&display=swap");
 
+body {
+    background: linear-gradient(217deg, rgba(255, 55, 95, 0.4), rgba(255, 55, 95, 0) 70.71%),
+        linear-gradient(127deg, rgba(255, 214, 10, 0.4), rgba(255, 214, 10, 0) 70.71%),
+        linear-gradient(336deg, rgba(94, 92, 230, 0.4), rgba(94, 92, 230, 0) 70.71%);
+
+    font-family: "Poppins";
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+
 .App {
     font-family: "IM Fell French Canon SC", serif; /* logo */
     font-family: "Lobster", cursive; /* explanation */
