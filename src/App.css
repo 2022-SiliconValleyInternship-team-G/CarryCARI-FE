@@ -17,3 +17,9 @@ body {
     font-family: "Lobster", cursive; /* explanation */
     font-family: "Poppins", sans-serif; /* title */
 }
+
+.Main {
+    height: 190vh;
+    display: grid;
+    grid-template-rows: 1fr 9fr 9fr;
+}
