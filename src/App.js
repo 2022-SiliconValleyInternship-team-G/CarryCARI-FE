@@ -10,12 +10,11 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <h2>App.js</h2>
                 <Routes>
                     <Route path="/" element={<Main />} />
-                    <Route path="/Upload" element={<Upload />} />
-                    <Route path="/Emotion" element={<Emotion />} />
-                    <Route path="/Result" element={<Result />} />
+                    <Route path="/upload" element={<Upload />} />
+                    <Route path="/emotion" element={<Emotion />} />
+                    <Route path="/result" element={<Result />} />
                 </Routes>
             </div>
         </BrowserRouter>
