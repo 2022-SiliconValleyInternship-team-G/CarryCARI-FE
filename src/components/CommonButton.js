@@ -3,17 +3,17 @@ import {ColorCode} from "../utils/palette";
 
 const StyledButton = styled.button`
     font-family: "Poppins";
-    font-size: 3vh;
+    font-size: 3vmin;
     font-weight: bold;
 
-    border: 0.3vh solid ${ColorCode.BLUE2};
+    border: 0.3vmin solid ${ColorCode.BLUE2};
     border-radius: 15px;
 
     background: ${ColorCode.WHITE};
     color: ${ColorCode.BLUE};
 
-    width: 30vw;
-    height: 6vh;
+    width: 40vw;
+    height: 8vh;
 
     cursor: pointer;
     transition: all 0.9s, color 0.3s;
