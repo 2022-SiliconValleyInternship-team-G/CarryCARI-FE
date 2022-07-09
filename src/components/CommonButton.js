@@ -6,7 +6,7 @@ const StyledButton = styled.button`
     font-size: 3vh;
     font-weight: bold;
 
-    border: none;
+    border: 0.3vh solid ${ColorCode.BLUE2};
     border-radius: 15px;
 
     background: ${ColorCode.WHITE};
@@ -16,6 +16,12 @@ const StyledButton = styled.button`
     height: 6vh;
 
     cursor: pointer;
+    transition: all 0.9s, color 0.3s;
+
+    &:hover {
+        background: ${ColorCode.BLUE2};
+        color: ${ColorCode.WHITE};
+    }
 `;
 
 const CommonButton = ({text, onClick}) => {
