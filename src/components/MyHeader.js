@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {NavLink, Link} from "react-router-dom";
+import {ColorCode} from "../utils/palette";
 
 const StyledHeader = styled.header`
     font-family: "IM Fell French Canon SC";
@@ -11,7 +13,13 @@ const StyledHeader = styled.header`
 `;
 
 const MyHeader = () => {
-    return <StyledHeader>CarryCARI</StyledHeader>;
+    return (
+        <StyledHeader>
+            <Link to="/" style={{textDecoration: "none", color: "black"}}>
+                CarryCARI
+            </Link>
+        </StyledHeader>
+    );
 };
 
 export default MyHeader;
