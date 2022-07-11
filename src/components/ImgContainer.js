@@ -28,11 +28,10 @@ const Img = styled.img`
 `;
 
 const ImgContainer = ({text, imgsrc}) => {
-    //이미지 주소 수정하기
     return (
         <ImgWrpper>
             <StyledImgContainer>
-                <Img alt={text} src={require("../assets/img2.png")} />
+                <Img alt={text} src={imgsrc} />
             </StyledImgContainer>
             {text}
         </ImgWrpper>

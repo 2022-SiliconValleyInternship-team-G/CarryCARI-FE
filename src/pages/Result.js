@@ -4,6 +4,7 @@ import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
 import {ColorCode} from "../utils/palette";
 import ImgContainer from "../components/ImgContainer";
+import {useCallback, useMemo, useEffect, useRef, useState} from "react";
 
 const Container = styled.div`
     height: 95vh;
@@ -28,13 +29,29 @@ const ResultContainer = styled.div`
 
 const Result = () => {
     const navigate = useNavigate();
+    const [imgAddress, setImgAddress] = useState({
+        before: "",
+        after: "",
+    });
+
+    const getData = async () => {
+        const res = await fetch("https://jsonplaceholder.typicode.com/photos").then((res) => res.json());
+        const before = `${res[0].url}.jpg`;
+        const after = `${res[1].url}.jpg`;
+        setImgAddress({before, after});
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <Container>
             <MyHeader />
             <Title>Check your Caricature!</Title>
             <ResultContainer>
-                <ImgContainer text="before" imgsrc="../assets/img1.png" />
-                <ImgContainer text="after" imgsrc="../assets/img2.png" />
+                <ImgContainer text="before" imgsrc={imgAddress.before} />
+                <ImgContainer text="after" imgsrc={imgAddress.after} />
             </ResultContainer>
             <CommonButton
                 text={"download"}
