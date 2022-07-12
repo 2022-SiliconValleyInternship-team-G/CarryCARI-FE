@@ -53,12 +53,9 @@ const Result = () => {
                 <ImgContainer text="before" imgsrc={imgAddress.before} />
                 <ImgContainer text="after" imgsrc={imgAddress.after} />
             </ResultContainer>
-            <CommonButton
-                text={"download"}
-                onClick={() => {
-                    navigate("/");
-                }}
-            />
+            <a download="caricature.jpeg" href={imgAddress.after}>
+                <CommonButton text={"download"} onClick={() => {}} />
+            </a>
         </Container>
     );
 };
