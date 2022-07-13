@@ -1,10 +1,11 @@
-import {useNavigate} from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import CommonButton from "../components/CommonButton";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
 import {ColorCode} from "../utils/palette";
 import ImgContainer from "../components/ImgContainer";
-import {useCallback, useMemo, useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const Container = styled.div`
     height: 95vh;
@@ -28,17 +29,33 @@ const ResultContainer = styled.div`
 `;
 
 const Result = () => {
-    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const feature_id = searchParams.get("id");
+    const feature_emotion = searchParams.get("emotion");
+
     const [imgAddress, setImgAddress] = useState({
         before: "",
         after: "",
     });
 
-    const getData = async () => {
-        const res = await fetch("https://jsonplaceholder.typicode.com/photos").then((res) => res.json());
-        const before = `${res[0].url}.jpg`;
-        const after = `${res[1].url}.jpg`;
-        setImgAddress({before, after});
+    const getData = () => {
+        axios
+            .get(`http://127.0.0.1:8000/cari/result?id=${feature_id}&emotion=${feature_emotion}`)
+            .then((response) => {
+                setImgAddress({
+                    before: response.data[0].before_img,
+                    after: response.data[0].after_img,
+                });
+            })
+            .catch((error) => {
+                // console.log(error);
+                // alert("사진을 가져오는데 실패했습니다.");
+                axios.get("https://jsonplaceholder.typicode.com/photos").then((res) => {
+                    const before = `${res.data[0].url}`;
+                    const after = `${res.data[1].url}`;
+                    setImgAddress({before, after});
+                });
+            });
     };
 
     useEffect(() => {
@@ -54,7 +71,7 @@ const Result = () => {
                 <ImgContainer text="after" imgsrc={imgAddress.after} />
             </ResultContainer>
             <a download="caricature.jpeg" href={imgAddress.after}>
-                <CommonButton text={"download"} onClick={() => {}} />
+                <CommonButton text={"download"} />
             </a>
         </Container>
     );
