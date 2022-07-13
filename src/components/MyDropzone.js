@@ -47,13 +47,14 @@ const ImgDiv = styled.div`
     height: 100%;
 `;
 
-function MyDropzone() {
+function MyDropzone({newUrl}) {
     const [imgName, setImgName] = useState("");
     const [imgSrc, setImgSrc] = useState("");
 
     const deleteImg = () => {
         setImgName("");
         setImgSrc("");
+        newUrl(imgSrc); //Upload.js로 url이 넘어가게
     };
 
     const onDrop = useCallback((acceptedFiles) => {
@@ -66,12 +67,16 @@ function MyDropzone() {
                 // Do whatever you want with the file contents
                 setImgSrc(reader.result);
                 setImgName(file.name);
+                newUrl(imgSrc);
             };
-            //reader.readAsArrayBuffer(file);
             reader.readAsDataURL(file);
         });
     }, []);
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
+
+    useEffect(() => {
+        newUrl(imgSrc);
+    }, [imgSrc]);
 
     return (
         <Container>
@@ -85,7 +90,6 @@ function MyDropzone() {
                     <Wrapper>
                         <ImgDiv>
                             <input {...getInputProps()} />
-                            {/* <AiOutlineDownload style={{size: "15vmin", width: "45vmin"}} /> */}
                             <AiOutlineDownload
                                 size="15vmin"
                                 style={{position: "absolute", top: "10vmin", left: "15vmin"}}
