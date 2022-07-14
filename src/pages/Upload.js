@@ -30,13 +30,21 @@ const Upload = () => {
 
     const sendUrl1 = () => {
         //바로 결과 페이지로
+        console.log(urlLink);
         axios
-            .post("http://127.0.0.1:8000/cari/image/", {
+            .post("http://127.0.0.1:8000/cari/image", {
                 user_url: urlLink,
             })
             .then((response) => {
-                console.log(response.data[0].user_id); //오는 data보고 인자 수정하기
-                navigate(`/result?id=${response.data[0].user_id}&emotion=0`);
+                console.log(response);
+                console.log(response.data.user_id);
+                //navigate(`/result?id=${response.data.user_id}&emotion=0`);
+                navigate("/waiting", {
+                    state: {
+                        id: response.data.user_id,
+                        emotion: 0,
+                    },
+                });
             })
             .catch((error) => {
                 console.log(error);
@@ -47,12 +55,18 @@ const Upload = () => {
     const sendUrl2 = () => {
         //감정 선택 페이지로
         axios
-            .post("http://127.0.0.1:8000/cari/image/", {
+            .post("http://127.0.0.1:8000/cari/image", {
                 user_url: urlLink,
             })
             .then((response) => {
-                console.log(response.data[0].user_id); //오는 data보고 인자 수정하기
-                navigate(`/emotion?id=${response.data[0].user_id}`);
+                console.log(response.data.user_id);
+                //navigate(`/emotion?id=${response.data.user_id}`);
+                navigate("/emotion", {
+                    state: {
+                        id: response.data.user_id,
+                        emotion: 1,
+                    },
+                });
             })
             .catch((error) => {
                 console.log(error);
