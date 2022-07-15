@@ -47,36 +47,39 @@ const ImgDiv = styled.div`
     height: 100%;
 `;
 
-function MyDropzone({newUrl}) {
+function MyDropzone({fileSetting}) {
     const [imgName, setImgName] = useState("");
     const [imgSrc, setImgSrc] = useState("");
+    const [imgFile, setImgFile] = useState("");
 
     const deleteImg = () => {
         setImgName("");
         setImgSrc("");
-        newUrl(imgSrc); //Upload.js로 url이 넘어가게
+        imgFile.delete("image");
+        fileSetting(imgFile);
     };
 
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
-            const reader = new FileReader();
+            const formData = new FormData(); //backend로 보내려고
+            formData.append("image", file);
+            setImgFile(formData);
+            fileSetting(imgFile);
 
-            reader.onabort = () => console.log("file reading was aborted");
-            reader.onerror = () => console.log("file reading has failed");
+            const reader = new FileReader(); // 화면에 바로 띄우려고
             reader.onload = () => {
-                // Do whatever you want with the file contents
                 setImgSrc(reader.result);
                 setImgName(file.name);
-                newUrl(imgSrc);
             };
             reader.readAsDataURL(file);
         });
     }, []);
-    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
     useEffect(() => {
-        newUrl(imgSrc);
-    }, [imgSrc]);
+        fileSetting(imgFile);
+    }, [imgFile]);
+
+    const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
     return (
         <Container>
