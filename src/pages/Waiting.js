@@ -70,13 +70,14 @@ const Waiting = () => {
                 emailPart.current.focus();
             } else {
                 axios
-                    .post("http://127.0.0.1:8000/cari/email/", {
+                    .post("http://127.0.0.1:8000/cari/email", {
                         user_id: userFeature.id,
                         user_email: emailInput,
                     })
                     .then((response) => {
-                        console.log(response.data.submit_result);
-                        if (response.data.submit_result === "success") {
+                        console.log(response);
+                        console.log(response.status);
+                        if (response.status === 200) {
                             setEmailSubmit(true);
                             setEmailInput("");
                         } else {
@@ -117,7 +118,7 @@ const Waiting = () => {
             })
             .catch((error) => {
                 console.log(error);
-                alert("사진을 가져오는데 실패했습니다.");
+                //alert("사진을 가져오는데 실패했습니다.");
             });
     };
 
