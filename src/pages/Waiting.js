@@ -43,9 +43,6 @@ const InputLine = styled.input`
 
 const Waiting = () => {
     const navigate = useNavigate();
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // const feature_id = searchParams.get("id");
-    // const feature_emotion = searchParams.get("emotion");
 
     const userInfo = useLocation();
     const [userFeature, setUserFeature] = useState({

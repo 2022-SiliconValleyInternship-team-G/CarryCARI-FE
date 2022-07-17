@@ -5,7 +5,6 @@ import {ColorCode} from "../utils/palette";
 import ImgContainer from "./ImgContainer";
 import {AiOutlineDownload} from "react-icons/ai";
 
-//전체 컨테이너
 const Container = styled.div`
     border-radius: 15px;
 `;

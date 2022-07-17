@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import {NavLink, Link} from "react-router-dom";
-import {ColorCode} from "../utils/palette";
+import {Link} from "react-router-dom";
 
 const StyledHeader = styled.header`
     font-family: "IM Fell French Canon SC";

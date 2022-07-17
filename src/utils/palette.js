@@ -5,5 +5,6 @@ const ColorCode = {
     WHITE: "#FFFFFF",
     BLUE: "#576FE7",
     BLUE2: "#9caaf1",
+    GRAY: "#A9A9A9",
 };
 export {ColorCode};

@@ -1,10 +1,10 @@
-import {useSearchParams, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import CommonButton from "../components/CommonButton";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
 import {ColorCode} from "../utils/palette";
 import ImgContainer from "../components/ImgContainer";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
 
 const Container = styled.div`

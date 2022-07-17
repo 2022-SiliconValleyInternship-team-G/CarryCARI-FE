@@ -4,7 +4,6 @@ import {ColorCode} from "../utils/palette";
 const StyledButton = styled.button`
     font-family: "Poppins";
     font-size: 2.3vmin;
-    // font-weight: bold;
 
     border: none;
     border-radius: 15px;

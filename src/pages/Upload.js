@@ -34,8 +34,8 @@ const Upload = () => {
         axios
             .post("http://127.0.0.1:8000/cari/image", imgFile)
             .then((response) => {
-                console.log(response);
-                console.log(response.data.user_id);
+                //console.log(response);
+                //console.log(response.data.user_id);
                 //navigate(`/result?id=${response.data.user_id}&emotion=0`);
                 navigate("/waiting", {
                     state: {

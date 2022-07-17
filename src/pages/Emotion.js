@@ -1,5 +1,5 @@
 import {useNavigate, useLocation} from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import CommonButton from "../components/CommonButton";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";

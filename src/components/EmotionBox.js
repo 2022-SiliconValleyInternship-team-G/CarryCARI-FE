@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import {ColorCode} from "../utils/palette";
-import {useEffect, useState} from "react";
 
 const ImgWrpper = styled.div`
     width: 20vmin;
     text-align: center;
-    // background: ${ColorCode.WHITE};
     border-radius: 15px;
     font-size: 1.6vw;
 `;
