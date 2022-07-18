@@ -12,7 +12,7 @@ const StyledButton = styled.button`
     background: ${ColorCode.WHITE};
     color: ${ColorCode.BLUE};
 
-    width: 40vw;
+    width: 75%;
     height: 8vh;
 
     cursor: pointer;

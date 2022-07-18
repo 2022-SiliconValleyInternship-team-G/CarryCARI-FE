@@ -8,6 +8,13 @@ const Container = styled.div`
     display: grid;
     grid-template-rows: 1fr repeat(2, 9fr);
     text-align: center;
+
+    @media all and (max-aspect-ratio: 1286/877) {
+        height: 190vh;
+        display: grid;
+        grid-template-rows: 1fr repeat(2, 9fr);
+        justify-content: center;
+    }
 `;
 
 const MainDiv = styled.div`
@@ -15,14 +22,39 @@ const MainDiv = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center center;
+
+    @media all and (max-aspect-ratio: 1286/877) {
+        height: 90vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
 `;
 
 const SubDiv = styled.div`
     display: grid;
     grid-template-rows: 3fr 1fr;
-    justify-items: center;
-    align-items: center;
+    place-items: center center;
     height: 75vh;
+
+    @media all and (max-aspect-ratio: 1286/877) {
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        align-items: start;
+        height: 90vh;
+    }
+`;
+
+const ImgDiv = styled.img`
+    @media all and (max-aspect-ratio: 1286/877) {
+        display: none;
+    }
+`;
+
+const TextContainer = styled.div`
+    @media all and (max-aspect-ratio: 1286/877) {
+        place-self: center;
+    }
 `;
 
 const Title = styled.div`
@@ -42,14 +74,14 @@ const Main = () => {
             <MyHeader />
             <MainDiv>
                 <SubDiv>
-                    <div>
+                    <TextContainer>
                         <Title>Create your own Caricature</Title>
                         <Content>
                             Upload your picture, and make your own caricature.
                             <br />
                             Try out this function by clicking the button below!
                         </Content>
-                    </div>
+                    </TextContainer>
 
                     <CommonButton
                         text={"create"}
@@ -59,16 +91,16 @@ const Main = () => {
                     />
                 </SubDiv>
 
-                <img
+                <ImgDiv
                     alt="func1_img"
                     src={require("../assets/img1.png")}
-                    style={{width: "75vh", paddingRight: "10px"}}
-                ></img>
+                    style={{width: "75vmin", paddingRight: "10px"}}
+                />
             </MainDiv>
             <MainDiv>
-                <img alt="func2_img" src={require("../assets/img2.png")} style={{width: "75vh"}}></img>
+                <ImgDiv alt="func2_img" src={require("../assets/img2.png")} style={{width: "75vmin"}} />
                 <SubDiv style={{paddingRight: "10px"}}>
-                    <div>
+                    <TextContainer>
                         <Title style={{fontSize: "9vmin"}}>
                             Create your own caricature with the emotions of your choice!
                         </Title>
@@ -77,7 +109,7 @@ const Main = () => {
                             emotion. <br />
                             Try out this function by clicking the button below!
                         </Content>
-                    </div>
+                    </TextContainer>
 
                     <CommonButton
                         text={"create"}

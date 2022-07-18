@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
     text-align: left;
 
     width: 100%;
-    height: 10vmin;
+    height: 10vh;
 `;
 
 const MyHeader = () => {
