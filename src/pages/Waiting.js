@@ -108,8 +108,8 @@ const Waiting = () => {
             .then((response) => {
                 console.log(response);
                 setImgAddress({
-                    before: response.data.before_img,
-                    after: response.data.after_img,
+                    before: `http://127.0.0.1:8000${response.data.before_img}`,
+                    after: `http://127.0.0.1:8000${response.data.after_img}`,
                 });
                 setCanMove(true);
             })

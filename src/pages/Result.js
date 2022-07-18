@@ -73,7 +73,7 @@ const Result = () => {
                 <ImgContainer text="before" imgsrc={imgAddress.before} />
                 <ImgContainer text="after" imgsrc={imgAddress.after} />
             </ResultContainer>
-            <a download="caricature.jpeg" href={imgAddress.after}>
+            <a download="caricature.jpeg" href={imgAddress.after} style={{width: "90vw", textAlign: "center"}}>
                 <CommonButton text={"download"} />
             </a>
         </Container>
