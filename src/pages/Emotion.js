@@ -17,8 +17,13 @@ const Container = styled.div`
 const Title = styled.div`
     font-size: 6.8vmin;
     font-weight: bold;
-    line-height: 8vmin;
+    line-height: 10.5vmin;
     place-self: center start;
+
+    @media all and (max-aspect-ratio: 1286/877) {
+        place-self: center center;
+        text-align: center;
+    }
 `;
 
 const EmotionContainer = styled.div`
@@ -33,6 +38,16 @@ const EmotionContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center center;
+
+    @media all and (max-aspect-ratio: 1286/877) {
+        height: 55vh;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        place-items: center center;
+        margin-bottom: 15px;
+    }
 `;
 
 const Emotion = () => {
@@ -63,9 +78,7 @@ const Emotion = () => {
         <Container>
             <MyHeader />
             <Title>
-                Choose
-                <br />
-                the emotions
+                Choose the emotions
                 <br />
                 of the caricature!
             </Title>
