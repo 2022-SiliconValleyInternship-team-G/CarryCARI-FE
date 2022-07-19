@@ -13,6 +13,7 @@ const StyledButton = styled.button`
     opacity: 80%;
     width: 8vw;
     height: 4vh;
+    min-width: 90px;
 
     cursor: pointer;
     transition: all 0.9s, color 0.3s;

@@ -11,16 +11,42 @@ const Container = styled.div`
     height: 95vh;
     display: grid;
     grid-template-rows: 1fr 6fr 3fr;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        height: 95vh;
+        display: grid;
+        grid-template-rows: 1fr 9fr;
+        place-items: start center;
+    }
 `;
 
-const GameContainer = styled.div``;
+const GameContainer = styled.div`
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        display: none;
+    }
+`;
 const GameHeader = styled.div`
     width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: end;
 `;
-const EmailContainer1 = styled.div``;
+const EmailContainer1 = styled.div`
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        place-items: start center;
+    }
+`;
+
+const EmailSubContainer1 = styled.div`
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        place-items: start center;
+    }
+`;
+
 const EmailContainer2 = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -29,6 +55,12 @@ const EmailContainer2 = styled.div`
 const Title = styled.div`
     font-size: 4vmin;
     font-weight: bold;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        font-size: 7vmin;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 `;
 
 const InputLine = styled.input`
@@ -39,6 +71,12 @@ const InputLine = styled.input`
     font-size: 2.5vmin;
     width: 40vw;
     margin-right: 10px;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        width: 90vw;
+        font-size: 4vmin;
+        margin: 10px;
+    }
 `;
 
 const Waiting = () => {
@@ -150,11 +188,11 @@ const Waiting = () => {
             ) : (
                 <EmailContainer1>
                     <Title>
-                        or Just enter your Email
+                        If you enter your Email,
                         <br />
-                        We will send the result later
+                        we will send the result later
                     </Title>
-                    <div>
+                    <EmailSubContainer1>
                         <InputLine
                             placeholder="Enter your Email"
                             onChange={handleEmail}
@@ -163,7 +201,7 @@ const Waiting = () => {
                             ref={emailPart}
                         />
                         <SmallButton text="submit" onClick={submitEmail} />
-                    </div>
+                    </EmailSubContainer1>
                 </EmailContainer1>
             )}
         </Container>

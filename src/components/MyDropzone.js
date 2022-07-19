@@ -15,13 +15,19 @@ const ResetButton = styled.button`
     left: 16.5vmin;
 
     width: 12vmin;
-    height: 4vmin;
+    height: 4.5vmin;
 
     border: none;
     border-radius: 10px;
 
     background: ${ColorCode.PINK};
     color: ${ColorCode.WHITE};
+
+    @media all and (max-aspect-ratio: 1286/877) and (orientation: portrait) {
+        margin-top: 15px;
+        border-radius: 5px;
+        height: 5vmin;
+    }
 `;
 const Wrapper = styled.div`
     opacity: 0.5;

@@ -2,29 +2,31 @@ import {useNavigate} from "react-router-dom";
 import styled from "styled-components";
 import CommonButton from "../components/CommonButton";
 import MyHeader from "../components/MyHeader";
+import {TbArrowBigDownLines} from "react-icons/tb";
 
 const Container = styled.div`
-    height: 190vh;
+    height: 180vh;
     display: grid;
-    grid-template-rows: 1fr repeat(2, 9fr);
+    grid-template-rows: 1fr 8fr 1fr 8fr;
     text-align: center;
+    place-items: center center;
 
     @media all and (max-aspect-ratio: 1286/877) {
-        height: 190vh;
+        height: 180vh;
         display: grid;
-        grid-template-rows: 1fr repeat(2, 9fr);
+        grid-template-rows: 1fr 7fr 2fr 8fr;
         justify-content: center;
     }
 `;
 
 const MainDiv = styled.div`
-    height: 90vh;
+    height: 75vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center center;
 
     @media all and (max-aspect-ratio: 1286/877) {
-        height: 90vh;
+        height: 75vh;
         display: grid;
         grid-template-columns: 1fr;
         justify-items: center;
@@ -35,13 +37,13 @@ const SubDiv = styled.div`
     display: grid;
     grid-template-rows: 3fr 1fr;
     place-items: center center;
-    height: 75vh;
+    height: 70vh;
 
     @media all and (max-aspect-ratio: 1286/877) {
         display: grid;
         grid-template-rows: 2fr 1fr;
         align-items: start;
-        height: 90vh;
+        height: 70vh;
     }
 `;
 
@@ -97,6 +99,9 @@ const Main = () => {
                     style={{width: "75vmin", paddingRight: "10px"}}
                 />
             </MainDiv>
+
+            <TbArrowBigDownLines size="5vh" style={{color: "white"}} />
+
             <MainDiv>
                 <ImgDiv alt="func2_img" src={require("../assets/img2.png")} style={{width: "75vmin"}} />
                 <SubDiv style={{paddingRight: "10px"}}>
