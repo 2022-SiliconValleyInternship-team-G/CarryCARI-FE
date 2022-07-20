@@ -55,10 +55,7 @@ const Emotion = () => {
     const [emotion, setEmotion] = useState(0);
 
     const userInfo = useLocation();
-    const [userFeature, setUserFeature] = useState({
-        id: userInfo.state.id,
-        emotion: userInfo.state.emotion, //emotion은 필요 없음
-    });
+    const userFeature = {id: userInfo.state.id, emotion: userInfo.state.emotion}; //emotion은 필요 없음
 
     const goToWaiting = () => {
         console.log(emotion);
@@ -70,8 +67,24 @@ const Emotion = () => {
         });
     };
 
-    const chooseEmotion = (em) => {
-        setEmotion(em);
+    const emotionList = (emotion) => {
+        const emlist = [];
+        for (let i = 1; i <= 4; i++) {
+            emlist.push(
+                <EmotionBox
+                    key={i}
+                    text={EmotionNames[i]}
+                    imgsrc={require(`../assets/${EmotionNames[i]}.png`)}
+                    onClick={() => {
+                        setEmotion(i);
+                    }}
+                    styling={{
+                        background: `${EmotionNames[emotion] === EmotionNames[i] ? `${ColorCode.GRAY}` : "none"}`,
+                    }}
+                />
+            );
+        }
+        return emlist;
     };
 
     return (
@@ -82,48 +95,7 @@ const Emotion = () => {
                 <br />
                 of the caricature!
             </Title>
-            <EmotionContainer>
-                <EmotionBox
-                    text="smile"
-                    imgsrc={require("../assets/smile.png")}
-                    onClick={() => {
-                        chooseEmotion(1);
-                    }}
-                    styling={{
-                        background: `${EmotionNames[emotion] === "smile" ? `${ColorCode.GRAY}` : "none"}`,
-                    }}
-                />
-                <EmotionBox
-                    text="cry"
-                    imgsrc={require("../assets/cry.png")}
-                    onClick={() => {
-                        chooseEmotion(2);
-                    }}
-                    styling={{
-                        background: `${EmotionNames[emotion] === "cry" ? `${ColorCode.GRAY}` : "none"}`,
-                    }}
-                />
-                <EmotionBox
-                    text="surprised"
-                    imgsrc={require("../assets/surprised.png")}
-                    onClick={() => {
-                        chooseEmotion(3);
-                    }}
-                    styling={{
-                        background: `${EmotionNames[emotion] === "surprised" ? `${ColorCode.GRAY}` : "none"}`,
-                    }}
-                />
-                <EmotionBox
-                    text="angry"
-                    imgsrc={require("../assets/angry.png")}
-                    onClick={() => {
-                        chooseEmotion(4);
-                    }}
-                    styling={{
-                        background: `${EmotionNames[emotion] === "angry" ? `${ColorCode.GRAY}` : "none"}`,
-                    }}
-                />
-            </EmotionContainer>
+            <EmotionContainer>{emotionList(emotion)}</EmotionContainer>
             <CommonButton
                 text={"next >>"}
                 onClick={() => {
