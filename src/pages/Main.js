@@ -88,7 +88,11 @@ const Main = () => {
                     <CommonButton
                         text={"create"}
                         onClick={() => {
-                            navigate("/upload?case=1");
+                            navigate("/upload", {
+                                state: {
+                                    case: 1,
+                                },
+                            });
                         }}
                     />
                 </SubDiv>
@@ -119,7 +123,11 @@ const Main = () => {
                     <CommonButton
                         text={"create"}
                         onClick={() => {
-                            navigate("/upload?case=2");
+                            navigate("/upload", {
+                                state: {
+                                    case: 2,
+                                },
+                            });
                         }}
                     />
                 </SubDiv>

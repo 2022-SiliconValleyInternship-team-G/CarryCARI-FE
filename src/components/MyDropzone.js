@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useCallback} from "react";
 import {useDropzone} from "react-dropzone";
 import styled from "styled-components";
 import {ColorCode} from "../utils/palette";
@@ -53,36 +53,32 @@ const ImgDiv = styled.div`
 `;
 
 function MyDropzone({fileSetting}) {
-    const [imgName, setImgName] = useState("");
-    const [imgSrc, setImgSrc] = useState("");
-    const [imgFile, setImgFile] = useState("");
+    const [imgName, setImgName] = useState(""); //화면에 표시하는 이름
+    const [imgSrc, setImgSrc] = useState(""); //화면에 표시하기 위한 이미지 주소
 
     const deleteImg = () => {
         setImgName("");
         setImgSrc("");
-        imgFile.delete("image");
-        fileSetting(imgFile);
+        fileSetting("");
     };
 
-    const onDrop = useCallback((acceptedFiles) => {
-        acceptedFiles.forEach((file) => {
-            const formData = new FormData(); //backend로 보내려고
-            formData.append("image", file);
-            setImgFile(formData);
-            fileSetting(imgFile);
+    const onDrop = useCallback(
+        (acceptedFiles) => {
+            acceptedFiles.forEach((file) => {
+                const formData = new FormData(); //backend로 보내려고
+                formData.append("image", file);
+                fileSetting(formData);
 
-            const reader = new FileReader(); // 화면에 바로 띄우려고
-            reader.onload = () => {
-                setImgSrc(reader.result);
-                setImgName(file.name);
-            };
-            reader.readAsDataURL(file);
-        });
-    }, []);
-
-    useEffect(() => {
-        fileSetting(imgFile);
-    }, [imgFile]);
+                const reader = new FileReader(); // 화면에 바로 띄우려고
+                reader.onload = () => {
+                    setImgSrc(reader.result);
+                    setImgName(file.name);
+                };
+                reader.readAsDataURL(file);
+            });
+        },
+        [fileSetting]
+    );
 
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
 
