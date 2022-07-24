@@ -12,7 +12,6 @@ const StyledButton = styled.button`
     color: ${ColorCode.WHITE};
     opacity: 80%;
     width: 8vw;
-    height: 4vh;
     min-width: 90px;
 
     cursor: pointer;
@@ -25,8 +24,12 @@ const StyledButton = styled.button`
     }
 `;
 
-const SmallButton = ({text, onClick}) => {
-    return <StyledButton onClick={onClick}>{text}</StyledButton>;
+const SmallButton = ({text, onClick, width}) => {
+    return (
+        <StyledButton onClick={onClick} style={{width: width}}>
+            {text}
+        </StyledButton>
+    );
 };
 
 export default SmallButton;

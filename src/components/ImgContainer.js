@@ -27,10 +27,10 @@ const Img = styled.img`
     height: 86%;
 `;
 
-const ImgContainer = ({text, imgsrc}) => {
+const ImgContainer = ({text, imgsrc, width}) => {
     return (
-        <ImgWrpper>
-            <StyledImgContainer>
+        <ImgWrpper style={{width: width}}>
+            <StyledImgContainer style={{width: width}}>
                 <Img alt={text} src={imgsrc} />
             </StyledImgContainer>
             {text}

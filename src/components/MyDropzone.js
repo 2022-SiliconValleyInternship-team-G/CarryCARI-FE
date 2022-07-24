@@ -86,7 +86,7 @@ function MyDropzone({fileSetting}) {
         <Container>
             {imgSrc ? (
                 <div style={{position: "relative"}}>
-                    <ImgContainer text={imgName} imgsrc={imgSrc} />
+                    <ImgContainer text={imgName} imgsrc={imgSrc} width={"45vmin"} />
                     <ResetButton onClick={deleteImg}>reset</ResetButton>
                 </div>
             ) : (
