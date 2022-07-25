@@ -1,16 +1,13 @@
 import {useLocation} from "react-router-dom";
-import CommonButton from "../components/CommonButton";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
-import {ColorCode} from "../utils/palette";
+import DownloadImgContainer from "../components/DownloadImgContainer";
 import ImgContainer from "../components/ImgContainer";
-import {useState} from "react";
-import axios from "axios";
 
 const Container = styled.div`
-    height: 95vh;
+    height: 150vh;
     display: grid;
-    grid-template-rows: 1fr 1fr 7fr 1fr;
+    grid-template-rows: 1fr 1fr 8fr;
     place-items: center center;
 `;
 const Title = styled.div`
@@ -20,62 +17,39 @@ const Title = styled.div`
 
 const ResultContainer = styled.div`
     width: 90vw;
-    height: 60vh;
-    // background: ${ColorCode.BLUE};
+    height: 130vh;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); //여기 수정할 것
+    grid-template-rows: repeat(3, 1fr);
     place-items: center center;
 `;
 
 const Result = () => {
-    // const [searchParams, setSearchParams] = useSearchParams();
-    // const feature_id = searchParams.get("id");
-    // const feature_emotion = searchParams.get("emotion");
-    ////////////
     const imgImg = useLocation();
-    const [imgAddress, setImgAddress] = useState({
+    const imgAddress = {
         before: imgImg.state.before,
         after: imgImg.state.after,
-    });
+    };
 
-    // const [imgAddress, setImgAddress] = useState({
-    //     before: "",
-    //     after: "",
-    // });
-    ///////////////
-    // const getData = () => {
-    //     axios
-    //         .get(`http://127.0.0.1:8000/cari/result?id=${feature_id}&emotion=${feature_emotion}`)
-    //         .then((response) => {
-    //             console.log(response);
-    //             // setImgAddress({
-    //             //     before: response.data.before_img,
-    //             //     after: response.data.after_img,
-    //             // });
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //             alert("사진을 가져오는데 실패했습니다.");
-    //             });
-    //         });
-    // };
+    const resultList = () => {
+        const reList = [];
+        for (let i = 0; i <= 3; i++) {
+            reList.push(<DownloadImgContainer key={i} text="after" imgsrc={imgAddress.after[i]} />);
+        }
+        reList.push(<ImgContainer key={9} text="before" imgsrc={imgAddress.before} />);
+        for (let i = 4; i <= 7; i++) {
+            reList.push(<DownloadImgContainer key={i} text="after" imgsrc={imgAddress.after[i]} />);
+        }
 
-    // useEffect(() => {
-    //     getData();
-    // }, []);
-    ///////////
+        return reList;
+    };
+
     return (
         <Container>
             <MyHeader />
             <Title>Check your Caricature!</Title>
-            <ResultContainer>
-                <ImgContainer text="before" imgsrc={imgAddress.before} />
-                <ImgContainer text="after" imgsrc={imgAddress.after} />
-            </ResultContainer>
-            <a download="caricature.jpeg" href={imgAddress.after} style={{width: "90vw", textAlign: "center"}}>
-                <CommonButton text={"download"} />
-            </a>
+            <ResultContainer>{resultList()}</ResultContainer>
         </Container>
     );
 };
