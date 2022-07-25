@@ -3,7 +3,7 @@ import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
 import Game from "react-chrome-dino";
 import SmallButton from "../components/SmallButton";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import EmailContainer from "../components/EmailContainer";
 
@@ -59,59 +59,40 @@ const Waiting = () => {
     const [canMove, setCanMove] = useState(false);
     const [imgAddress, setImgAddress] = useState({
         before: "",
-        after: "",
+        after: [],
     });
 
     const goToResult = () => {
-        console.log(imgAddress);
         navigate("/result", {state: imgAddress});
     };
 
-    useInterval(
-        () => {
-            axios
-                //.get(`http://127.0.0.1:8000/cari/result?id=2&emotion=0`)
-                .get(`http://127.0.0.1:8000/cari/result?id=${userFeature.id}&emotion=${userFeature.emotion}`)
-                .then((response) => {
-                    console.log(response);
-                    if (response.data.after_img !== "yet") {
-                        //여기는 종료 조건 (api 수정후 고치기)
-                        setImgAddress({
-                            before: `http://127.0.0.1:8000${response.data.before_img}`,
-                            after: `http://127.0.0.1:8000${response.data.after_img}`,
-                        });
-                        setCanMove(true);
-                    } else {
-                        //여기는 디버깅용
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                    alert("사진을 가져오는데 실패했습니다.");
+    const getData = () => {
+        axios
+            .get(`http://127.0.0.1:8000/cari/result?id=${userFeature.id}&emotion=${userFeature.emotion}`)
+            .then((response) => {
+                console.log(response.data);
+
+                let afterArr = Object.values(response.data).filter((elm) => elm !== response.data.before_img);
+                afterArr = afterArr.map((elm) => {
+                    return "http://127.0.0.1:8000" + elm;
                 });
-        },
-        imgAddress.after ? null : 5000
-    );
 
-    function useInterval(callback, delay) {
-        const savedCallback = useRef();
+                setImgAddress({
+                    before: `http://127.0.0.1:8000${response.data.before_img}`,
+                    after: afterArr,
+                });
 
-        // Remember the latest function.
-        useEffect(() => {
-            savedCallback.current = callback;
-        }, [callback]);
+                setCanMove(true);
+            })
+            .catch((error) => {
+                console.log(error);
+                //alert("사진을 가져오는데 실패했습니다.");
+            });
+    };
 
-        // Set up the interval.
-        useEffect(() => {
-            function tick() {
-                savedCallback.current();
-            }
-            if (delay !== null) {
-                let id = setInterval(tick, delay);
-                return () => clearInterval(id);
-            }
-        }, [delay]);
-    }
+    useEffect(() => {
+        getData();
+    });
 
     return (
         <Container>
