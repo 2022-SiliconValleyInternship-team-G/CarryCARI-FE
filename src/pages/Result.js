@@ -2,13 +2,17 @@ import {useLocation} from "react-router-dom";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
 import DownloadImgContainer from "../components/DownloadImgContainer";
-import ImgContainer from "../components/ImgContainer";
 
 const Container = styled.div`
     height: 150vh;
     display: grid;
-    grid-template-rows: 1fr 1fr 8fr;
+    grid-template-rows: 1fr 1fr 13fr;
     place-items: center center;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        height: 130vh;
+        grid-template-rows: 1fr 1fr 11fr;
+    }
 `;
 const Title = styled.div`
     font-size: 7vmin;
@@ -20,9 +24,15 @@ const ResultContainer = styled.div`
     height: 130vh;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); //여기 수정할 것
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     place-items: center center;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        height: 110vh;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
 `;
 
 const Result = () => {
@@ -37,7 +47,7 @@ const Result = () => {
         for (let i = 0; i <= 3; i++) {
             reList.push(<DownloadImgContainer key={i} text="after" imgsrc={imgAddress.after[i]} />);
         }
-        reList.push(<ImgContainer key={9} text="before" imgsrc={imgAddress.before} />);
+        reList.push(<DownloadImgContainer key={9} text="before" imgsrc={imgAddress.before} />);
         for (let i = 4; i <= 7; i++) {
             reList.push(<DownloadImgContainer key={i} text="after" imgsrc={imgAddress.after[i]} />);
         }

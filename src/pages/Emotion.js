@@ -55,7 +55,7 @@ const Emotion = () => {
     const [emotion, setEmotion] = useState(0);
 
     const userInfo = useLocation();
-    const userFeature = {id: userInfo.state.id, emotion: userInfo.state.emotion}; //emotion은 필요 없음
+    const userFeature = {id: userInfo.state.id, emotion: userInfo.state.emotion};
 
     const goToWaiting = () => {
         console.log(emotion);

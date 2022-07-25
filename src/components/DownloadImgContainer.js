@@ -8,6 +8,12 @@ const DownloadWrapper = styled.div`
     flex-direction: column;
     height: 35vmin;
     justify-content: space-between;
+
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        &:nth-child(5) {
+            display: none;
+        }
+    }
 `;
 
 const DownloadImgContainer = ({text, imgsrc}) => {

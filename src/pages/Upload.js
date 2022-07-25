@@ -20,7 +20,7 @@ const Title = styled.div`
 
 const Upload = () => {
     const navigate = useNavigate();
-    const feature_case = useLocation().state.case; //func1인지 func2인지
+    const feature_case = useLocation().state.case;
 
     const [imgFile, setImgFile] = useState();
     const fileSetting = (newFile) => {
@@ -28,7 +28,6 @@ const Upload = () => {
     };
 
     const sendUrl1 = () => {
-        //바로 결과 페이지로
         if (!imgFile) alert("사진을 업로드해주세요.");
         else {
             axios
@@ -49,7 +48,6 @@ const Upload = () => {
     };
 
     const sendUrl2 = () => {
-        //감정 선택 페이지로
         if (!imgFile) alert("사진을 업로드해주세요.");
         else {
             axios

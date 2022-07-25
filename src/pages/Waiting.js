@@ -70,8 +70,6 @@ const Waiting = () => {
         axios
             .get(`http://127.0.0.1:8000/cari/result?id=${userFeature.id}&emotion=${userFeature.emotion}`)
             .then((response) => {
-                console.log(response.data);
-
                 let afterArr = Object.values(response.data).filter((elm) => elm !== response.data.before_img);
                 afterArr = afterArr.map((elm) => {
                     return "http://127.0.0.1:8000" + elm;
@@ -86,7 +84,7 @@ const Waiting = () => {
             })
             .catch((error) => {
                 console.log(error);
-                //alert("사진을 가져오는데 실패했습니다.");
+                alert("사진을 가져오는데 실패했습니다.");
             });
     };
 
