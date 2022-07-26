@@ -6,6 +6,7 @@ import SmallButton from "../components/SmallButton";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import EmailContainer from "../components/EmailContainer";
+import {AddressLink} from "../utils/addressLink";
 
 const Container = styled.div`
     height: 95vh;
@@ -68,15 +69,15 @@ const Waiting = () => {
 
     const getData = () => {
         axios
-            .get(`http://127.0.0.1:8000/cari/result?id=${userFeature.id}&emotion=${userFeature.emotion}`)
+            .get(`${AddressLink}/cari/result?id=${userFeature.id}&emotion=${userFeature.emotion}`)
             .then((response) => {
                 let afterArr = Object.values(response.data).filter((elm) => elm !== response.data.before_img);
                 afterArr = afterArr.map((elm) => {
-                    return "http://127.0.0.1:8000" + elm;
+                    return AddressLink + elm;
                 });
 
                 setImgAddress({
-                    before: `http://127.0.0.1:8000${response.data.before_img}`,
+                    before: AddressLink + response.data.before_img,
                     after: afterArr,
                 });
 

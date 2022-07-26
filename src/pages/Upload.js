@@ -5,6 +5,7 @@ import styled from "styled-components";
 import MyDropzone from "../components/MyDropzone";
 import React, {useState} from "react";
 import axios from "axios";
+import {AddressLink} from "../utils/addressLink";
 
 const Container = styled.div`
     height: 95vh;
@@ -31,7 +32,7 @@ const Upload = () => {
         if (!imgFile) alert("사진을 업로드해주세요.");
         else {
             axios
-                .post("http://127.0.0.1:8000/cari/image", imgFile)
+                .post(AddressLink + "/cari/image", imgFile)
                 .then((response) => {
                     navigate("/waiting", {
                         state: {
@@ -51,7 +52,7 @@ const Upload = () => {
         if (!imgFile) alert("사진을 업로드해주세요.");
         else {
             axios
-                .post("http://127.0.0.1:8000/cari/image", imgFile)
+                .post(AddressLink + "/cari/image", imgFile)
                 .then((response) => {
                     navigate("/emotion", {
                         state: {

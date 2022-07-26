@@ -4,6 +4,7 @@ import styled from "styled-components";
 import SmallButton from "../components/SmallButton";
 import React, {useState, useRef} from "react";
 import axios from "axios";
+import {AddressLink} from "../utils/addressLink";
 
 const EmailContainer1 = styled.div`
     @media all and (max-width: 600px) and (orientation: portrait) {
@@ -63,7 +64,7 @@ const EmailContainer = (userFeature) => {
             emailPart.current.focus();
         } else {
             axios
-                .post("http://127.0.0.1:8000/cari/email", {
+                .post(AddressLink + "/cari/email", {
                     user_id: userFeature.id,
                     user_email: emailInput,
                 })
