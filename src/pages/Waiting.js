@@ -107,7 +107,7 @@ const Waiting = () => {
                 <Game />
                 <SubTitle>Press the space bar to play the game</SubTitle>
             </GameContainer>
-            <EmailContainer userFeature={userFeature} />
+            {canMove ? null : <EmailContainer userFeature={userFeature} />}
         </Container>
     );
 };
