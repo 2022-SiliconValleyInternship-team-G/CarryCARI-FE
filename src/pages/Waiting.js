@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import EmailContainer from "../components/EmailContainer";
 import {AddressLink} from "../utils/addressLink";
+import CommonButton from "../components/CommonButton";
 
 const Container = styled.div`
     height: 95vh;
@@ -48,6 +49,14 @@ const Title = styled.div`
         font-size: 7vmin;
         text-align: center;
         margin-bottom: 20px;
+    }
+`;
+const ResultContainer = styled.div`
+    display: none;
+    @media all and (max-width: 600px) and (orientation: portrait) {
+        display: block;
+        width: 90%;
+        text-align: center;
     }
 `;
 
@@ -107,7 +116,14 @@ const Waiting = () => {
                 <Game />
                 <SubTitle>Press the space bar to play the game</SubTitle>
             </GameContainer>
-            {canMove ? null : <EmailContainer userFeature={userFeature} />}
+            {canMove ? (
+                <ResultContainer>
+                    <Title>Check your caricature!</Title>
+                    <CommonButton text="result>>" onClick={goToResult} />
+                </ResultContainer>
+            ) : (
+                <EmailContainer userFeature={userFeature} />
+            )}
         </Container>
     );
 };
