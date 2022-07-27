@@ -85,13 +85,13 @@ const Waiting = () => {
             })
             .catch((error) => {
                 console.log(error);
-                alert("사진을 가져오는데 실패했습니다.");
             });
+        console.log("##");
     };
 
     useEffect(() => {
         getData();
-    });
+    }, []);
 
     return (
         <Container>

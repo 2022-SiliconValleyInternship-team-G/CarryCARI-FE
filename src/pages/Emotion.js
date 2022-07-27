@@ -58,7 +58,6 @@ const Emotion = () => {
     const userFeature = {id: userInfo.state.id, emotion: userInfo.state.emotion};
 
     const goToWaiting = () => {
-        console.log(emotion);
         navigate("/waiting", {
             state: {
                 id: userFeature.id,

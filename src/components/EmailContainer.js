@@ -63,26 +63,27 @@ const EmailContainer = (userFeature) => {
             alert("please check your email");
             emailPart.current.focus();
         } else {
-            axios
-                .post(AddressLink + "/cari/email", {
-                    user_id: userFeature.id,
-                    user_email: emailInput,
-                })
-                .then((response) => {
-                    console.log(response);
-                    if (response.status === 200) {
-                        setEmailSubmit(true);
-                        setEmailInput("");
-                    } else {
-                        alert("Fail to submit Email");
-                        setEmailInput("");
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                    alert("Fail to submit Email");
-                    setEmailInput("");
-                });
+            axios.post(AddressLink + "/cari/email", {
+                user_id: userFeature.userFeature.id,
+                user_email: emailInput,
+            });
+            //setEmailSubmit(true);
+            setEmailInput("");
+            // .then((response) => {
+            //     console.log(response);
+            //     if (response.status === 200) {
+            //         setEmailSubmit(true);
+            //         setEmailInput("");
+            //     } else {
+            //         alert("Fail to submit Email");
+            //         setEmailInput("");
+            //     }
+            // })
+            // .catch((error) => {
+            //     console.log(error);
+            //     alert("Fail to submit Email");
+            //     setEmailInput("");
+            // });
         }
     };
 
