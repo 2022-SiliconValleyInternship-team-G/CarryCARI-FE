@@ -86,7 +86,6 @@ const Waiting = () => {
             .catch((error) => {
                 console.log(error);
             });
-        console.log("##");
     };
 
     useEffect(() => {
