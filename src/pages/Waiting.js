@@ -1,7 +1,6 @@
 import {useNavigate, useLocation} from "react-router-dom";
 import MyHeader from "../components/MyHeader";
 import styled from "styled-components";
-import Game from "react-chrome-dino";
 import SmallButton from "../components/SmallButton";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -60,6 +59,13 @@ const ResultContainer = styled.div`
     }
 `;
 
+const IframeContrainer = styled.iframe`
+    width: 90vw;
+    height: 50%;
+    border: none;
+    margin-left: 5vw;
+`;
+
 const Waiting = () => {
     const navigate = useNavigate();
 
@@ -113,7 +119,9 @@ const Waiting = () => {
                     </Title>
                     {canMove ? <SmallButton text="result>>" onClick={goToResult} /> : null}
                 </GameHeader>
-                <Game />
+                <IframeContrainer title="dino" src="https://dooli1971039.github.io/t-rex-runner/">
+                    Chrome Dino Game
+                </IframeContrainer>
                 <SubTitle>Press the space bar to play the game</SubTitle>
             </GameContainer>
             {canMove ? (
