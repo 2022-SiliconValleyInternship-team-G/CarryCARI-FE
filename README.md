@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# CarryCARI Frontend
+The name of our project is **CarryCARI**.  
+CarryCARI is a service that receives photos from users and **creates unique caricatures**.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Main Page (1)](https://user-images.githubusercontent.com/90602936/181512006-5c9a6387-fba1-4401-b3a2-8389c36b6e77.png)
 
-## Available Scripts
+## Index
+- [CarryCARI](#CarryCARI)
+  - [1. Site URL](#1-Site-URL)
+  - [2. Flow](#2-Flow)
+  - [3. Pages](#3-Pages)
+  - [5. Contact Information](#5-Contact-Information)
 
-In the project directory, you can run:
 
-### `npm start`
+## 1. Site URL
+- FLAGLY : http://www.learnflagly.com/course/courses/351/
+- Webservice URL(Frontend - no longer working) : https://carrycari.netlify.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 2. Flow
+![Flow](https://i.imgur.com/QW4DxA8.jpg)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## 3. Pages
+- Our website is designed to be responsive.
+-    <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white"/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### 📌[Main Page]
+![KakaoTalk_20220728_211800953](https://user-images.githubusercontent.com/67141385/181505051-59cb696e-9eb0-42b7-8143-a53e6c3a10ed.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📌[Upload Page]
+![KakaoTalk_20220728_211801783](https://user-images.githubusercontent.com/67141385/181505095-e98a2cb5-ed18-4b02-a417-a8ce7d764f1d.gif)
+- Upload a photo by **drag and drop**.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 📌[Emotion Page]
+![KakaoTalk_20220728_211803888](https://user-images.githubusercontent.com/67141385/181505112-9cbbbe8d-23e6-4744-900f-5648a2de7d12.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📌[Waiting Page]
+![KakaoTalk_20220728_211805665](https://user-images.githubusercontent.com/67141385/181505127-c19f3c82-0d86-46eb-92ba-11f7a4052cdd.gif) 
+- The waiting page is that the user waits while the entered picture is being drawn as a caricature. 
+- Cute **dinosaur games** were added to avoid users' boredom, and if you **submit an e-mail** by putting a window to register an e-mail, you can also receive the results by e-mail.
 
-### `npm run eject`
+### 📌[Result Page]
+![Result Page](https://user-images.githubusercontent.com/70802352/181600528-ae3826c7-9be6-49aa-9d28-8225e57deb8e.png)
+- You can **download** the caricature in this page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 4. Contact Information
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Name    | 김소민                                     | 김유진                                        | 임연우                                         | 이주현                                  | 이진경                                    |
+| ------- | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
+| role    | Backend Developer                          | Backend Developer                            | AI, Backend Developer                                 | AI | Team Leader, Frontend Developer
+| Github  | [@thals1214](https://github.com/thals1214) | [@Yujin-nKim](https://github.com/Yujin-nKim) | [@Lim-YeonWoo](https://github.com/Lim-YeonWoo) | [@JulieOnIsland](https://github.com/JulieOnIsland) | [@dooli1971039](https://github.com/dooli1971039) | 
